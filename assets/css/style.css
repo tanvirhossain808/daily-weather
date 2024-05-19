@@ -8,31 +8,94 @@
     box-sizing: border-box;
 }
 
-h1 {
-    background-color: red;
-    font-family: "Lato", sans-serif;
-    font-weight: 400;
-    font-style: none;
+button {
+    cursor: pointer;
 }
 
 body {
-    /* background-color: gray; */
+    background-image: url("../images/bg.jpg");
+    background-size: cover;
+    width: 100vw;
+    height: 100vh;
+    background-position: center;
+    background-repeat: no-repeat;
+    overflow: hidden;
 }
 
-.searchField {
-    border: 1px solid tomato;
-    width: 500px;
+.container {
+    max-width: 1200px;
+    max-height: 100vh;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 100px;
+}
+
+.cityName {
+    color: white;
+    margin-bottom: 20px;
+}
+
+
+.container .searchContainer {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
     border-radius: 10px;
+    width: max(25vw, 450px);
+    background-color: #F8FAFC;
+}
+
+.container .searchContainer .searchField {
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    padding-left: 20px;
+}
+
+.container .searchContainer button {
+    background: orange;
+    color: white;
+    width: max(100px, 10vw);
+    border: none;
+    font-size: 15px;
+    border-radius: 10px;
+    transition: ease-in .2s;
+    flex: 1;
+}
+
+.container .searchContainer button:hover {
+    background: rgba(255, 166, 0, 0.644);
+}
+
+
+.container .bg-color {
+    background-color: #F8FAFC;
+
 }
 
 .searchField input {
     outline: none;
-    padding: 10px 20px;
+
+    padding: 15px 20px;
     border: none;
+    background-color: inherit;
+    width: 100%;
 
 }
 
-.searchField input:focus {
-    border: 1px solid gray;
+.searchField input::placeholder {
+    color: gray;
+}
 
+.searchField input:focus {
+    color: black;
+}
+
+.container .todayWeather {
+    margin-top: 20px;
+    color: white;
 }
