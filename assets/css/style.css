@@ -54,6 +54,18 @@ body {
     align-items: center;
     justify-content: start;
     padding-left: 20px;
+    position: relative;
+}
+
+/* .container .searchContainer .displaySelect {
+    display: none;
+} */
+
+.selectOption {
+    position: absolute;
+    margin-top: 50px;
+    top: 200;
+    left: 60%;
 }
 
 .container .searchContainer button {
@@ -98,4 +110,14 @@ body {
 .container .todayWeather {
     margin-top: 20px;
     color: white;
+}
+
+.todayWeather {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.todayWeather .conditionText {
+    color: whitesmoke;
 }
