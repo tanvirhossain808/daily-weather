@@ -12,6 +12,10 @@ button {
     cursor: pointer;
 }
 
+li {
+    list-style: none;
+}
+
 body {
     background-image: url("../images/bg.jpg");
     background-size: cover;
@@ -33,7 +37,9 @@ body {
     margin-top: 100px;
 }
 
-.cityName {
+.container .cityInfo {
+    display: flex;
+    margin: 0px 2px;
     color: white;
     margin-bottom: 20px;
 }
@@ -61,11 +67,30 @@ body {
     display: none;
 } */
 
-.selectOption {
+.container .selectOption {
+    width: 200px;
+    padding-left: 120px;
+    border-radius: 10px;
+    font-size: 20px;
+    width: 300px;
+    background: rgba(128, 128, 128, 0.486);
     position: absolute;
-    margin-top: 50px;
-    top: 200;
-    left: 60%;
+    top: 0;
+    color: black;
+    margin-top: 60px;
+    left: 40%;
+    z-index: 1;
+}
+
+.container .selectCity {
+    cursor: pointer;
+    border-radius: 3px;
+    margin-top: 5px;
+    transition: ease-in-out .2s;
+}
+
+.container .selectCity:hover {
+    color: white;
 }
 
 .container .searchContainer button {

@@ -11,7 +11,10 @@ const elements = {
     conditionImg: document.querySelector(".conditionImg"),
     conditionText: document.querySelector(".conditionText"),
     searchBtn: document.querySelector(".searchBtn"),
-    selectOption: document.querySelector(".selectOption")
+    selectOption: document.querySelector(".selectOption"),
+    selectedCity: document.querySelector('.selectCity'),
+    cityName: document.querySelector(".cityName"),
+    countryName: document.querySelector(".countryName")
 
 }
 
@@ -37,6 +40,9 @@ const getCurrentWeather = async (city = "dhaka") => {
         elements.tempField.innerText = data.current.temp_c
         elements.conditionImg.src = `https://${data.current.condition.icon}`
         elements.conditionText.innerText = data.current.condition.text
+        elements.countryName.innerText = data.location.country
+        elements.cityName.innerText = data.location.name
+
     } catch (error) {
         console.log(error);
     }
@@ -70,7 +76,8 @@ window.addEventListener("keyup", (e) => {
             const li = document.createElement("li")
             // console.log(element);
             li.textContent = element
-            li.value = element
+            li.className = "selectCity"
+            li.onclick = (e) => handleSelect(e)
             selectElement.appendChild(li)
         })
     }
@@ -87,17 +94,19 @@ elements.searchBtn.addEventListener("click", () => {
     if (!inputValue) return alert("Please enter city name")
     getCurrentWeather(inputValue)
 
-
-
     elements.inputField.value = ''
 })
 
 
 
+const handleSelect = (e) => {
+    const city = e.target.textContent
+    elements.inputField.value = city
+    getCurrentWeather(city)
+    elements.selectOption.innerHTML = ''
+    elements.inputField.value = ''
 
-
-
-
+}
 
 
 
