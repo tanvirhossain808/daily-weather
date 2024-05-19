@@ -1,0 +1,38 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+
+
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+h1 {
+    background-color: red;
+    font-family: "Lato", sans-serif;
+    font-weight: 400;
+    font-style: none;
+}
+
+body {
+    /* background-color: gray; */
+}
+
+.searchField {
+    border: 1px solid tomato;
+    width: 500px;
+    border-radius: 10px;
+}
+
+.searchField input {
+    outline: none;
+    padding: 10px 20px;
+    border: none;
+
+}
+
+.searchField input:focus {
+    border: 1px solid gray;
+
+}
