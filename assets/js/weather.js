@@ -31,24 +31,33 @@ const loadCityList = async () => {
     }
 }
 loadCityList()
+// const getCurrentWeather = async (city) => {
+//     const weatherData = await fetch(`${apiResource.weatherApi}/current.json?key=${apiResource.weatherApiKey}&q=${city}`)
+//     const data = await weatherData.json()
+//     return data
 
-const getCurrentWeather = async (city = "dhaka") => {
+// }
+const getCurrentWeather = async (city) => {
+    const weatherData = await fetch(`${apiResource.weatherApi}/forecast.json?key=${apiResource.weatherApiKey}&q=${city}`)
+    const data = await weatherData.json()
+    return data
+}
+const updateWeatherPage = async (city = "dhaka") => {
     try {
-        const weatherData = await fetch(`${apiResource.weatherApi}/current.json?key=${apiResource.weatherApiKey}&q=${city}`)
-        const data = await weatherData.json()
-        console.log(data);
-        elements.tempField.innerText = data.current.temp_c
-        elements.conditionImg.src = `https://${data.current.condition.icon}`
-        elements.conditionText.innerText = data.current.condition.text
-        elements.countryName.innerText = data.location.country
-        elements.cityName.innerText = data.location.name
+
+        const { current, location, forecast } = await getCurrentWeather(city)
+        elements.tempField.innerText = current.temp_c
+        elements.conditionImg.src = `https://${current.condition.icon}`
+        elements.conditionText.innerText = current.condition.text
+        elements.countryName.innerText = location.country
+        elements.cityName.innerText = location.name
 
     } catch (error) {
         console.log(error);
     }
 
 }
-getCurrentWeather()
+
 
 
 
@@ -74,7 +83,6 @@ window.addEventListener("keyup", (e) => {
     if (matchCityList.length) {
         matchCityList.forEach((element) => {
             const li = document.createElement("li")
-            // console.log(element);
             li.textContent = element
             li.className = "selectCity"
             li.onclick = (e) => handleSelect(e)
@@ -92,24 +100,21 @@ window.addEventListener("keyup", (e) => {
 elements.searchBtn.addEventListener("click", () => {
     const inputValue = elements.inputField.value
     if (!inputValue) return alert("Please enter city name")
-    getCurrentWeather(inputValue)
+    updateWeatherPage(inputValue)
 
     elements.inputField.value = ''
 })
 
 
 
-const handleSelect = (e) => {
+const handleSelect = async (e) => {
     const city = e.target.textContent
     elements.inputField.value = city
-    getCurrentWeather(city)
+    await updateWeatherPage(city)
     elements.selectOption.innerHTML = ''
     elements.inputField.value = ''
 
 }
 
 
-
-
-
-
+updateWeatherPage()
