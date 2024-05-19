@@ -8,13 +8,17 @@ const apiResource = {
 const elements = {
     inputField: document.querySelector(".inputField"),
     tempField: document.querySelector(".temp"),
+    fellField: document.querySelector(".fell"),
     conditionImg: document.querySelector(".conditionImg"),
     conditionText: document.querySelector(".conditionText"),
     searchBtn: document.querySelector(".searchBtn"),
     selectOption: document.querySelector(".selectOption"),
     selectedCity: document.querySelector('.selectCity'),
     cityName: document.querySelector(".cityName"),
-    countryName: document.querySelector(".countryName")
+    countryName: document.querySelector(".countryName"),
+    chanceOfRaining: document.querySelector(".rainChance"),
+    sunrise: document.querySelector(".sunrise"),
+    sunset: document.querySelector(".sunset"),
 
 }
 
@@ -31,12 +35,7 @@ const loadCityList = async () => {
     }
 }
 loadCityList()
-// const getCurrentWeather = async (city) => {
-//     const weatherData = await fetch(`${apiResource.weatherApi}/current.json?key=${apiResource.weatherApiKey}&q=${city}`)
-//     const data = await weatherData.json()
-//     return data
 
-// }
 const getCurrentWeather = async (city) => {
     const weatherData = await fetch(`${apiResource.weatherApi}/forecast.json?key=${apiResource.weatherApiKey}&q=${city}`)
     const data = await weatherData.json()
@@ -46,12 +45,21 @@ const updateWeatherPage = async (city = "dhaka") => {
     try {
 
         const { current, location, forecast } = await getCurrentWeather(city)
-        elements.tempField.innerText = current.temp_c
+        const forecastData = forecast.forecastday[0]
+        console.log(current, "current");
+        console.log(location, "location");
+        console.log(forecast, "forecast");
+        document.body.style.backgroundImage = current.is_day ? "url('../../assets/images/day.jpg')" : "url('../../assets/images/night.jpg')"
+        console.log(current.is_day);
+        elements.tempField.innerText = current.temp_c + "°C"
         elements.conditionImg.src = `https://${current.condition.icon}`
         elements.conditionText.innerText = current.condition.text
         elements.countryName.innerText = location.country
+        elements.fellField.innerText = current.feelslike_c + "°C"
         elements.cityName.innerText = location.name
-
+        elements.chanceOfRaining.innerText = `${forecastData.day.daily_chance_of_rain}  % `
+        elements.sunrise.innerText = forecastData.astro.sunrise
+        elements.sunset.innerText = forecastData.astro.sunset
     } catch (error) {
         console.log(error);
     }
@@ -101,7 +109,7 @@ elements.searchBtn.addEventListener("click", () => {
     const inputValue = elements.inputField.value
     if (!inputValue) return alert("Please enter city name")
     updateWeatherPage(inputValue)
-
+    elements.selectOption.innerHTML = ''
     elements.inputField.value = ''
 })
 

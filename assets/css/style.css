@@ -17,13 +17,25 @@ li {
 }
 
 body {
-    background-image: url("../images/bg.jpg");
+    background-image: url("../images/night.jpg");
     background-size: cover;
     width: 100vw;
     height: 100vh;
     background-position: center;
     background-repeat: no-repeat;
     overflow: hidden;
+    animation: fadeIn 2s;
+}
+
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
 }
 
 .container {
@@ -43,7 +55,6 @@ body {
     color: white;
     margin-bottom: 20px;
 }
-
 
 .container .searchContainer {
     display: flex;
@@ -132,6 +143,10 @@ body {
     color: black;
 }
 
+.container .todayExtraInfo {
+    color: white;
+}
+
 .container .todayWeather {
     margin-top: 20px;
     color: white;
@@ -145,4 +160,22 @@ body {
 
 .todayWeather .conditionText {
     color: whitesmoke;
+}
+
+.container .todayExtraInfo {
+    background: rgba(0, 0, 0, 0.411);
+    border-radius: 10px;
+    padding: 30px;
+}
+
+.container .iconStyle {
+    font-size: 24px;
+    width: 24px;
+}
+
+.container .todayExtraInfo .extraInfo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
 }
