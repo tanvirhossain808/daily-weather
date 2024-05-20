@@ -24,6 +24,7 @@ body {
     background-position: center;
     background-repeat: no-repeat;
     overflow: hidden;
+    overflow-y: scroll;
     animation: fadeIn 2s;
 }
 
