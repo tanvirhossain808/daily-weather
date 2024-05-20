@@ -30,6 +30,10 @@ const elements = {
     statusForeCast: document.querySelector(".status"),
     uvForeCast: document.querySelector(".uv-forecast"),
     humidityForecast: document.querySelector(".humidity-forecast"),
+    todayHightTemp: document.querySelector(".todayHeightTemp"),
+    todayLowestTemp: document.querySelector(".todayLowestTemp"),
+    todayHumidity: document.querySelector(".todayHumidity"),
+    todayUv: document.querySelector(".todayUv"),
 
 
 }
@@ -72,10 +76,10 @@ const updateWeatherPage = async (city = "dhaka") => {
         const dayNames = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 
         const { current, location, forecast } = await getCurrentWeather(city)
-        const forecastData = forecast.forecastday[0]
-        console.log(current, "current");
-        console.log(location, "location");
-        console.log(forecast, "forecast");
+        const currentWeather = forecast.forecastday[0]
+        console.log(currentWeather, "current");
+        // console.log(location, "location");
+        // console.log(forecast, "forecast");
         document.body.style.backgroundImage = current.is_day ? "url('../../assets/images/day.jpg')" : "url('../../assets/images/night.jpg')"
         elements.tempField.innerText = current.temp_c + "°C"
         elements.conditionImg.src = `https://${current.condition.icon}`
@@ -83,9 +87,13 @@ const updateWeatherPage = async (city = "dhaka") => {
         elements.countryName.innerText = location.country
         elements.fellField.innerText = current.feelslike_c + "°C"
         elements.cityName.innerText = location.name
-        elements.chanceOfRaining.innerText = `${forecastData.day.daily_chance_of_rain}  % `
-        elements.sunrise.innerText = forecastData.astro.sunrise
-        elements.sunset.innerText = forecastData.astro.sunset
+        elements.chanceOfRaining.innerText = `${currentWeather.day.daily_chance_of_rain}  % `
+        elements.sunrise.innerText = currentWeather.astro.sunrise
+        elements.sunset.innerText = currentWeather.astro.sunset
+        elements.todayHightTemp.innerText = currentWeather.day.maxtemp_c
+        elements.todayLowestTemp.innerText = currentWeather.day.mintemp_c
+        elements.todayHumidity.innerText = currentWeather.day.avghumidity
+        elements.todayUv.innerText = currentWeather.day.uv
         forecast.forecastday.forEach((day, index) => {
 
             if (index !== 0) {

@@ -142,6 +142,17 @@ body {
 
 .container .todayExtraInfo {
     color: white;
+    display: flex;
+    gap: 30px;
+    background: rgba(0, 0, 0, 0.432);
+    border-radius: 10px;
+    padding: 30px;
+}
+
+.container .todayExtraInfo div {
+    padding: 5px;
+    background-color: rgba(0, 0, 0, 0.295);
+    border-radius: 10px;
 }
 
 .container .todayWeather {
@@ -159,11 +170,6 @@ body {
     color: whitesmoke;
 }
 
-.container .todayExtraInfo {
-    background: rgba(0, 0, 0, 0.411);
-    border-radius: 10px;
-    padding: 30px;
-}
 
 .container .iconStyle {
     font-size: 24px;
@@ -246,7 +252,6 @@ body {
     display: flex;
     gap: 10px;
     margin: 10px;
-
     padding: 10px;
     border-radius: 6px;
     flex-direction: column;
@@ -254,10 +259,12 @@ body {
     justify-items: center;
 }
 
+
 .sunrise-set-forecast .sun div,
 .dayForecast .dayStatus div,
-.rain-forecast .rainFeild div,
+.rain-forecast div,
 .humidty-forecast div {
+    width: 230px;
     display: flex;
     align-items: center;
     gap: 10px;
