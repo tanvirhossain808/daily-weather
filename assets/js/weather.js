@@ -19,13 +19,19 @@ const elements = {
     chanceOfRaining: document.querySelector(".rainChance"),
     sunrise: document.querySelector(".sunrise"),
     sunset: document.querySelector(".sunset"),
-    forecast: document.querySelector(".forecastSection")
+    forecast: document.querySelector(".forecastSection"),
+    activeForeCast: document.querySelector(".day.active"),
+    rainProbabilityField: document.querySelector(".rainProbabilty"),
+    rainForecastTitle: document.querySelector(".rain-title"),
+    sunriseForeCast: document.querySelector(".forecastSunrise"),
+    sunsetForecast: document.querySelector(".forecastSunset"),
 
 
 }
 
 
 const cityList = []
+let foreCastLists = []
 
 const loadCityList = async () => {
     try {
@@ -43,7 +49,17 @@ const getCurrentWeather = async (city) => {
     const data = await weatherData.json()
     return data
 }
+
+const handleForecast = (day, div) => {
+    updateTheForecastPart(day)
+    const data = document.querySelector(".day.active")
+    const partiCularDay = div.querySelector(".day")
+    data.classList.remove("active")
+    partiCularDay.classList.add("active")
+}
+
 const updateWeatherPage = async (city = "dhaka") => {
+    foreCastLists = []
     try {
         const dayNames = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 
@@ -53,7 +69,6 @@ const updateWeatherPage = async (city = "dhaka") => {
         console.log(location, "location");
         console.log(forecast, "forecast");
         document.body.style.backgroundImage = current.is_day ? "url('../../assets/images/day.jpg')" : "url('../../assets/images/night.jpg')"
-        console.log(current.is_day);
         elements.tempField.innerText = current.temp_c + "°C"
         elements.conditionImg.src = `https://${current.condition.icon}`
         elements.conditionText.innerText = current.condition.text
@@ -66,11 +81,13 @@ const updateWeatherPage = async (city = "dhaka") => {
         forecast.forecastday.forEach((day, index) => {
 
             if (index !== 0) {
+                foreCastLists.push(day)
+                if (index === 1) updateTheForecastPart(day)
                 const div = document.createElement("div")
                 div.className = "forecast"
                 const dayName = dayNames[new Date(day.date_epoch * 1000).getDay()]
                 div.innerHTML = `
-                <div class="day">
+                <div class="day ${index === 1 ? "active" : ""}">
                     <p class="date">${day.date}</p>
                     <img src="https://${day.day.condition.icon}">
                     <h4>${day.day.avgtemp_c} °C</h4>
@@ -78,19 +95,30 @@ const updateWeatherPage = async (city = "dhaka") => {
                 </day>
                 
                 `
+                div.addEventListener("click", () => {
+                    handleForecast(day, div)
+                })
                 elements.forecast.appendChild(div)
             }
 
         })
-
-
-
 
     } catch (error) {
         console.log(error);
     }
 
 }
+
+const updateTheForecastPart = (day) => {
+    console.log(day);
+    elements.rainProbabilityField.innerText = day.day.daily_chance_of_rain + " %"
+    elements.rainForecastTitle.innerText = day.day.condition.text
+    elements.sunriseForeCast.innerText = day.astro.sunrise
+    elements.sunsetForecast.innerText = day.astro.sunset
+
+
+}
+
 
 
 

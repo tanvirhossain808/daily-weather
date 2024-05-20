@@ -46,7 +46,7 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-top: 100px;
+    margin-top: 50px;
 }
 
 .container .cityInfo {
@@ -73,10 +73,6 @@ body {
     padding-left: 20px;
     position: relative;
 }
-
-/* .container .searchContainer .displaySelect {
-    display: none;
-} */
 
 .container .selectOption {
     width: 200px;
@@ -182,20 +178,34 @@ body {
 
 .forecastSection {
     display: flex;
-    gap: 50px;
+    gap: 30px;
     margin-bottom: 10px;
     color: white;
     align-items: center;
+    background-color: #15161288;
+    padding: 4px 10px;
+    border-radius: 5px;
 }
 
-.forecastSection .foreCastHeader h2 {
-    background-color: red;
-    color: white;
-    display: none;
+.forecastSection .day {
+    padding: 0px 5px;
+    border-radius: 5px;
+    transition: ease-in .2s;
+    cursor: pointer;
 }
 
-h2 {
+.forecastSection .day:hover {
+    background: rgba(0, 0, 0, 0.397);
+}
+
+.forecastSection .day.active {
+    background: rgba(0, 0, 0, 0.397);
+}
+
+.forecastContainer .foreCastHeader h2 {
     color: white;
+    margin: 5px 0px;
+    text-align: center;
 }
 
 .forecastSection .day {
@@ -203,4 +213,43 @@ h2 {
     flex-direction: column;
     justify-items: center;
     align-items: center;
+}
+
+.particularDayForecast {
+    margin-top: 10px;
+    background-color: #15161288;
+    border-radius: 4px;
+}
+
+.particularDayForecast {
+    color: rgba(255, 255, 255, 0.836);
+}
+
+.particularDayForecast .sun,
+.rainFeild {
+    /* background-color: #151612b9; */
+    background-color: #151612b9;
+    display: flex;
+    gap: 10px;
+    margin: 10px;
+
+    padding: 10px;
+    border-radius: 6px;
+    flex-direction: column;
+    align-items: center;
+    justify-items: center;
+}
+
+.forecastContainer {
+    display: none;
+}
+
+.sunrise-set-forecast .sun div {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.sunrise-set-forecast .sun .sunImg {
+    width: 20px;
 }
