@@ -24,7 +24,6 @@ body {
     min-height: 100vh;
     background-position: center;
     background-repeat: no-repeat;
-    /* overflow: hidden; */
     animation: fadeIn 2s;
 }
 
@@ -50,7 +49,6 @@ body {
     margin-top: 100px;
     min-height: 600px;
     scroll-behavior: smooth;
-    /* overflow: hidden; */
 }
 
 .container .cityInfo {
@@ -67,6 +65,7 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    margin-top: 50px;
 
 }
 
@@ -186,11 +185,6 @@ body {
     display: flex;
 }
 
-.todayWeather .today-info-title {
-    /* margin-top: 20px; */
-
-}
-
 .todayWeather div {
     flex: 1;
 }
@@ -287,7 +281,6 @@ body {
 .dayStatus,
 .humidty-forecast,
 .rain-forecast {
-    /* background-color: #151612b9; */
     background-color: #151612b9;
     display: flex;
     gap: 10px;
@@ -325,7 +318,6 @@ body {
     body {
         min-height: 100vh;
         font-size: 13px;
-        /* overflow: hidden; */
     }
 
     .container {
@@ -352,8 +344,6 @@ body {
     .forecastSection {
         padding: 0;
         width: 90vw;
-        /* overflow-x: scroll; */
-        /*  */
         justify-content: center;
         margin: auto;
     }
@@ -384,7 +374,6 @@ body {
     }
 
     .forecastContainer .foreCastHeader {
-        /* overflow-x: scroll; */
         width: 100vw;
 
     }
@@ -405,6 +394,4 @@ body {
     .container .foreCastWeateher {
         padding: 0px;
     }
-
-
 }

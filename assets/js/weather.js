@@ -40,8 +40,6 @@ const elements = {
 
 
 const cityList = []
-let foreCastLists = []
-
 const loadCityList = async () => {
     try {
         const countryList = await fetch(apiResource.countryApi)
@@ -59,6 +57,7 @@ const getCurrentWeather = async (city) => {
         const data = await weatherData.json()
         return data
     } catch (error) {
+        console.log(error);
     }
 
 }
@@ -74,8 +73,6 @@ const handleForecast = (day, div) => {
 const updateWeatherPage = async (city = "dhaka") => {
 
     elements.forecast.innerHTML = ''
-
-    foreCastLists = []
     try {
         const dayNames = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 
@@ -91,14 +88,13 @@ const updateWeatherPage = async (city = "dhaka") => {
         elements.chanceOfRaining.innerText = `${currentWeather.day.daily_chance_of_rain}  % `
         elements.sunrise.innerText = currentWeather.astro.sunrise
         elements.sunset.innerText = currentWeather.astro.sunset
-        elements.todayHightTemp.innerText = currentWeather.day.maxtemp_c
-        elements.todayLowestTemp.innerText = currentWeather.day.mintemp_c
+        elements.todayHightTemp.innerText = currentWeather.day.maxtemp_c + "°C"
+        elements.todayLowestTemp.innerText = currentWeather.day.mintemp_c + "°C"
         elements.todayHumidity.innerText = currentWeather.day.avghumidity
         elements.todayUv.innerText = currentWeather.day.uv
         forecast.forecastday.forEach((day, index) => {
 
             if (index !== 0) {
-                foreCastLists.push(day)
                 if (index === 1) updateTheForecastPart(day)
                 const div = document.createElement("div")
                 div.className = "forecast"
@@ -130,18 +126,14 @@ const updateTheForecastPart = (day) => {
     elements.rainProbabilityField.innerText = day.day.daily_chance_of_rain + " %"
     elements.sunriseForeCast.innerText = day.astro.sunrise
     elements.sunsetForecast.innerText = day.astro.sunset
-    elements.hightTempForecast.innerText = day.day.maxtemp_c
-    elements.lowestTempForecast.innerText = day.day.mintemp_c
+    elements.hightTempForecast.innerText = day.day.maxtemp_c + "°C"
+    elements.lowestTempForecast.innerText = day.day.mintemp_c + "°C"
     elements.statusForeCast.innerText = day.day.condition.text
-    elements.avgTempForecast.innerText = day.day.avgtemp_c
+    elements.avgTempForecast.innerText = day.day.avgtemp_c + "°C"
     elements.uvForeCast.innerText = day.day.uv
     elements.humidityForecast.innerText = day.day.avghumidity
 
 }
-
-
-
-
 
 
 window.addEventListener("keyup", (e) => {
