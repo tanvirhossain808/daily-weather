@@ -70,33 +70,68 @@
             <hr>
         </div>
         <div class="particularDayForecast">
-            <div class="sunrise-set-forecast">
-                <div class="sun">
-                    <div>
-                        <i class="fa-solid fa-sun sunImg"></i>
-                        <h4>Sunrise : <span class="forecastSunrise"></span> </h4>
+            <div class="dayForecast">
+
+                <div class="sunrise-set-forecast">
+                    <div class="sun">
+                        <div>
+                            <i class="fa-solid fa-sun sunImg"></i>
+                            <h4>Sunrise : <span class="forecastSunrise"></span> </h4>
+                        </div>
+                        <div>
+                            <i class="fa-solid fa-moon sunImg"></i>
+                            <h4>Sunset : <span class="forecastSunset"></span></h4>
+                        </div>
+                        <div>
+                            <i class="fa-solid fa-temperature-three-quarters"></i>
+                            <h4>Temp : <span class="foreCastAvgTemp"></span></h4>
+                        </div>
                     </div>
+                </div>
+                <div class="dayStatus">
+                    <div class="highTemp">
+                        <i class="fa-solid fa-temperature-arrow-up"></i>
+                        <h4>Highest temp: <span class="highTempFeild"></span></h4>
+                    </div>
+                    <div class="lowestTemp">
+                        <i class="fa-solid fa-temperature-arrow-down"></i>
+                        <h4>Lowest temp: <span class="lowestTempFeild"></span>
+                        </h4>
+
+                    </div>
+                </div>
+
+                <div class="rain-forecast">
+                    <div class="rainFeild">
+                        <div>
+                            <i class="fa-solid fa-cloud-rain"></i>
+                            <h4>Probability of rain : <span class="rainProbabilty"></span></h4>
+                        </div>
+                        <div>
+                            <i class="fa-solid fa-circle-half-stroke"></i>
+                            <h4>
+                                Status: <span class="status"></span>
+                            </h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="humidty-forecast">
                     <div>
-                        <i class="fa-solid fa-moon sunImg"></i>
-                        <h4>Sunset : <span class="forecastSunset"></span></h4>
+                        <i class="fa-solid fa-temperature-half"></i>
+                        <h4>
+                            Uv: <span class="uv-forecast"></span>
+                        </h4>
+                    </div>
+
+                    <div>
+                        <i class="fa-solid fa-droplet"></i>
+                        <h4>
+                            Humidity : <span class="humidity-forecast"></span> %
+                        </h4>
                     </div>
                 </div>
             </div>
-            <div class="ranin-forecast">
-                <div class="rainFeild">
-                    <i class="fa-solid fa-cloud-rain"></i>
-                    <h4>Probability of rain : <span class="rainProbabilty"></span></h4>
-                    <p class="rain-title"></p>
-                </div>
-            </div>
-            <div class="ranin-forecast">
-            </div>
-            <div class="humidty-forecast">
 
-            </div>
-            <div class="wind-forecast">
-
-            </div>
         </div>
     </div>
     <script src="./assets/js/weather.js"></script>

@@ -19,11 +19,12 @@ li {
 body {
     background-image: url("../images/night.jpg");
     background-size: cover;
-    width: 100vw;
-    height: 100vh;
+    min-width: 100vw;
+    min-height: 100vh;
     background-position: center;
     background-repeat: no-repeat;
     overflow: hidden;
+    overflow-y: scroll;
     animation: fadeIn 2s;
 }
 
@@ -176,6 +177,15 @@ body {
 
 }
 
+/* .container .particularDayForecast .dayStatus {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+} */
+.container .dayForecast {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
 .forecastSection {
     display: flex;
     gap: 30px;
@@ -186,6 +196,7 @@ body {
     padding: 4px 10px;
     border-radius: 5px;
 }
+
 
 .forecastSection .day {
     padding: 0px 5px;
@@ -226,7 +237,10 @@ body {
 }
 
 .particularDayForecast .sun,
-.rainFeild {
+.rain-forecast,
+.dayStatus,
+.humidty-forecast,
+.rain-forecast {
     /* background-color: #151612b9; */
     background-color: #151612b9;
     display: flex;
@@ -240,14 +254,14 @@ body {
     justify-items: center;
 }
 
-.forecastContainer {
-    display: none;
-}
-
-.sunrise-set-forecast .sun div {
+.sunrise-set-forecast .sun div,
+.dayForecast .dayStatus div,
+.rain-forecast .rainFeild div,
+.humidty-forecast div {
     display: flex;
     align-items: center;
     gap: 10px;
+    justify-items: center;
 }
 
 .sunrise-set-forecast .sun .sunImg {

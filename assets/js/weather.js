@@ -22,9 +22,14 @@ const elements = {
     forecast: document.querySelector(".forecastSection"),
     activeForeCast: document.querySelector(".day.active"),
     rainProbabilityField: document.querySelector(".rainProbabilty"),
-    rainForecastTitle: document.querySelector(".rain-title"),
     sunriseForeCast: document.querySelector(".forecastSunrise"),
     sunsetForecast: document.querySelector(".forecastSunset"),
+    avgTempForecast: document.querySelector(".foreCastAvgTemp"),
+    hightTempForecast: document.querySelector(".highTempFeild"),
+    lowestTempForecast: document.querySelector(".lowestTempFeild"),
+    statusForeCast: document.querySelector(".status"),
+    uvForeCast: document.querySelector(".uv-forecast"),
+    humidityForecast: document.querySelector(".humidity-forecast"),
 
 
 }
@@ -59,6 +64,9 @@ const handleForecast = (day, div) => {
 }
 
 const updateWeatherPage = async (city = "dhaka") => {
+
+    elements.forecast.innerHTML = ''
+
     foreCastLists = []
     try {
         const dayNames = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
@@ -110,12 +118,15 @@ const updateWeatherPage = async (city = "dhaka") => {
 }
 
 const updateTheForecastPart = (day) => {
-    console.log(day);
     elements.rainProbabilityField.innerText = day.day.daily_chance_of_rain + " %"
-    elements.rainForecastTitle.innerText = day.day.condition.text
     elements.sunriseForeCast.innerText = day.astro.sunrise
     elements.sunsetForecast.innerText = day.astro.sunset
-
+    elements.hightTempForecast.innerText = day.day.maxtemp_c
+    elements.lowestTempForecast.innerText = day.day.mintemp_c
+    elements.statusForeCast.innerText = day.day.condition.text
+    elements.avgTempForecast.innerText = day.day.avgtemp_c
+    elements.uvForeCast.innerText = day.day.uv
+    elements.humidityForecast.innerText = day.day.avghumidity
 
 }
 
