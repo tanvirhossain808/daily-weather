@@ -48,8 +48,7 @@ body {
     justify-content: center;
     align-items: center;
     margin-top: 100px;
-    /* overflow-y: scroll;
-    scrollbar-width: none; */
+    scroll-behavior: smooth;
 }
 
 .container .cityInfo {
@@ -329,6 +328,8 @@ body {
     .container {
         flex-direction: column;
         margin-top: 50px;
+        padding: 5px;
+        overflow: hidden;
 
     }
 
@@ -389,7 +390,7 @@ body {
     }
 
     .container .foreCastWeateher {
-        padding: 10px;
+        padding: 0px;
     }
 
 
