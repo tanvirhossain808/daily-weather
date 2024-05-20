@@ -6,7 +6,6 @@ const apiResource = {
 }
 
 const elements = {
-    loader: document.querySelector(".loader"),
     inputField: document.querySelector(".inputField"),
     tempField: document.querySelector(".temp"),
     fellField: document.querySelector(".fell"),
@@ -55,9 +54,13 @@ const loadCityList = async () => {
 loadCityList()
 
 const getCurrentWeather = async (city) => {
-    const weatherData = await fetch(`${apiResource.weatherApi}/forecast.json?key=${apiResource.weatherApiKey}&q=${city}&days=5`)
-    const data = await weatherData.json()
-    return data
+    try {
+        const weatherData = await fetch(`${apiResource.weatherApi}/forecast.json?key=${apiResource.weatherApiKey}&q=${city}&days=5`)
+        const data = await weatherData.json()
+        return data
+    } catch (error) {
+    }
+
 }
 
 const handleForecast = (day, div) => {
@@ -78,9 +81,6 @@ const updateWeatherPage = async (city = "dhaka") => {
 
         const { current, location, forecast } = await getCurrentWeather(city)
         const currentWeather = forecast.forecastday[0]
-        console.log(currentWeather, "current");
-        // console.log(location, "location");
-        // console.log(forecast, "forecast");
         document.body.style.backgroundImage = current.is_day ? "url('../../assets/images/day.jpg')" : "url('../../assets/images/night.jpg')"
         elements.tempField.innerText = current.temp_c + "°C"
         elements.conditionImg.src = `https://${current.condition.icon}`
@@ -121,7 +121,7 @@ const updateWeatherPage = async (city = "dhaka") => {
         })
 
     } catch (error) {
-        console.log(error);
+        window.alert("Please provide a valid city name")
     }
 
 }
@@ -145,6 +145,7 @@ const updateTheForecastPart = (day) => {
 
 
 window.addEventListener("keyup", (e) => {
+    if (e.key === "Enter") return
     const selectElement = elements.selectOption
     selectElement.innerHTML = ''
     const inputValue = elements.inputField.value
@@ -160,8 +161,6 @@ window.addEventListener("keyup", (e) => {
         }
     }
 
-    console.log(matchCityList);
-    console.log(matchCityList.length);
     if (matchCityList.length) {
         matchCityList.forEach((element) => {
             const li = document.createElement("li")
@@ -178,6 +177,19 @@ window.addEventListener("keyup", (e) => {
 
 
 })
+const handleEnterKey = async (event) => {
+    if (event.key === 'Enter') {
+        const inputValue = elements.inputField.value
+        if (!inputValue) return alert("Please enter a city name")
+        await updateWeatherPage(inputValue)
+        elements.inputField.value = ''
+        elements.selectOption.innerHTML = ''
+    }
+}
+
+elements.inputField.addEventListener('focus', () => {
+    document.addEventListener("keyup", handleEnterKey);
+});
 
 elements.searchBtn.addEventListener("click", () => {
     const inputValue = elements.inputField.value
@@ -202,7 +214,3 @@ const handleSelect = async (e) => {
 updateWeatherPage()
 
 
-window.addEventListener("load", () => {
-    elements.loader.style.display = "none"
-    console.log("hey");
-})

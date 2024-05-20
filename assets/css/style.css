@@ -18,13 +18,13 @@ li {
 }
 
 body {
+    position: relative;
     background-image: url("../images/night.jpg");
     background-size: cover;
     min-height: 100%;
     background-position: center;
     background-repeat: no-repeat;
-    /* overflow: hidden; */
-    overflow-y: scroll;
+    overflow: hidden;
     animation: fadeIn 2s;
 }
 
@@ -39,18 +39,6 @@ body {
     }
 }
 
-.loader {
-    background-image: url("../images/load-8510_256.gif");
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: 5%;
-    overflow: hidden;
-    z-index: 10;
-    background-color: black;
-    height: 110vh;
-    width: 100vw;
-}
-
 .container {
     max-width: 1200px;
     max-height: 100vh;
@@ -63,7 +51,6 @@ body {
     min-height: 600px;
     scroll-behavior: smooth;
     overflow: hidden;
-    overflow-y: scroll;
 }
 
 .container .cityInfo {
@@ -108,12 +95,13 @@ body {
     border-radius: 10px;
     font-size: 20px;
     width: 300px;
-    background: rgba(128, 128, 128, 0.486);
+    background: rgba(128, 128, 128, 0.664);
     position: absolute;
     top: 0;
+    left: 0;
     color: black;
     margin-top: 60px;
-    left: 40%;
+    left: 20%;
     z-index: 1;
 }
 
@@ -350,10 +338,6 @@ body {
 
     .container .todayWeatherContainer .todayWeatherLeftSide {
         display: none;
-    }
-
-    .container .selectOption {
-        left: 0;
     }
 
     .container .dayForecast {
