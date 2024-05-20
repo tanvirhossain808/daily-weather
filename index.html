@@ -9,154 +9,165 @@
 </head>
 <body>
     <div class="container">
-        <div class="cityInfo">
-            <h3 class="cityName">Dhaka</h3>
-            <span>,</span>
-            <h3 class="countryName">Bangladesh</h3>
-        </div>
-        <div class="searchContainer ">
-            <div class="searchField bg-color">
-                <div class="weatherIcon">
-                    <i class="fa-solid fa-cloud"></i>
-                </div>
-                <input class="inputField" type="text" placeholder="Please enter city name">
-                <div class="searchIcon">
-                </div>
-                <ul class="selectOption displaySelect">
-                </ul>
+        <div class="todayWeatherContainer">
+            <div class="cityInfo">
+                <h3 class="cityName">Dhaka</h3>
+                <span>,</span>
+                <h3 class="countryName">Bangladesh</h3>
             </div>
-            <button class="searchBtn">Search</button>
-        </div>
-        <div class="todayWeather">
-            <img class="conditionImg" src="" alt="">
-            <h2 class="temp">
-                34&deg;C
-            </h2>
-            <h3 class="conditionText">
-            </h3>
-        </div>
-        <div class="todayExtraInfo">
-            <div>
-                <div class="extraInfo">
-                    <i class="fa-solid fa-temperature-full fa-lg iconStyle"></i>
-                    <h2>
-                        Fells like : <span class="fell"></span>
-                    </h2>
+            <div class="searchContainer ">
+                <div class="searchField bg-color">
+                    <div class="weatherIcon">
+                        <i class="fa-solid fa-cloud"></i>
+                    </div>
+                    <input class="inputField" type="text" placeholder="Please enter city name">
+                    <div class="searchIcon">
+                    </div>
+                    <ul class="selectOption displaySelect">
+                    </ul>
+                </div>
+                <button class="searchBtn">Search</button>
+            </div>
+            <div class="todayWeather">
+                <img class="conditionImg" src="" alt="">
+                <h2 class="temp">
+                    34&deg;C
+                </h2>
+                <h3 class="conditionText">
+                </h3>
+            </div>
+            <div class="todayExtraInfo">
+                <h1 class="today-info-title">
+                    Today's weather
+                </h1>
+                <div class="todayWeatherExtraInfo">
+                    <div>
+                        <div class="extraInfo">
+                            <i class="fa-solid fa-temperature-full fa-lg iconStyle"></i>
+                            <h2>
+                                Fells like : <span class="fell"></span>
+                            </h2>
 
-                </div>
-                <div class="extraInfo">
-                    <i class="fa-solid fa-cloud-rain fa-lg iconStyle"></i>
-                    <h2>Rain chance : <span class="rainChance"></span>
-                    </h2>
-                </div>
-                <div class="extraInfo">
-                    <i class="fa-regular fa-sun fa-lg"></i>
-                    <h2>Sunrise : <span class="sunrise"></span>
-                    </h2>
-                </div>
-                <div class="extraInfo">
-                    <i class="fa-solid fa-moon fa-lg"></i>
-                    <h2>SunSet : <span class="sunset"></span>
-                    </h2>
-                </div>
-            </div>
-            <div>
-                <div class="extraInfo">
-                    <i class="fa-solid fa-temperature-arrow-up"></i>
-                    <h2>
-                        Hight temp : <span class="todayHeightTemp"></span>
-                    </h2>
-
-                </div>
-                <div class="extraInfo">
-                    <i class="fa-solid fa-temperature-arrow-down"></i>
-                    <h2>Lowest temp : <span class="todayLowestTemp"></span>
-                    </h2>
-                </div>
-                <div class="extraInfo">
-                    <i class="fa-solid fa-droplet"></i>
-                    <h2>Humidity : <span class="todayHumidity"></span>
-                    </h2>
-                </div>
-                <div class="extraInfo">
-                    <i class="fa-solid fa-temperature-half"></i>
-                    <h2>UV: <span class="todayUv"> %</span>
-                    </h2>
-                </div>
-            </div>
-        </div>
-        <div class="forecastContainer">
-            <div class="foreCastHeader">
-                <i class="fa-solid fa-calendar-days"></i>
-                <h2>4 days forecast</h2>
-            </div>
-            <div class="forecastSection">
-
-            </div>
-            <hr>
-        </div>
-        <div class="particularDayForecast">
-            <div class="dayForecast">
-
-                <div class="sunrise-set-forecast">
-                    <div class="sun">
-                        <div>
-                            <i class="fa-solid fa-sun sunImg"></i>
-                            <h4>Sunrise : <span class="forecastSunrise"></span> </h4>
                         </div>
-                        <div>
-                            <i class="fa-solid fa-moon sunImg"></i>
-                            <h4>Sunset : <span class="forecastSunset"></span></h4>
+                        <div class="extraInfo">
+                            <i class="fa-solid fa-cloud-rain fa-lg iconStyle"></i>
+                            <h2>Rain chance : <span class="rainChance"></span>
+                            </h2>
                         </div>
-                        <div>
-                            <i class="fa-solid fa-temperature-three-quarters"></i>
-                            <h4>Temp : <span class="foreCastAvgTemp"></span></h4>
+                        <div class="extraInfo">
+                            <i class="fa-regular fa-sun fa-lg"></i>
+                            <h2>Sunrise : <span class="sunrise"></span>
+                            </h2>
+                        </div>
+                        <div class="extraInfo">
+                            <i class="fa-solid fa-moon fa-lg"></i>
+                            <h2>SunSet : <span class="sunset"></span>
+                            </h2>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="extraInfo">
+                            <i class="fa-solid fa-temperature-arrow-up"></i>
+                            <h2>
+                                Hight temp : <span class="todayHeightTemp"></span>
+                            </h2>
+
+                        </div>
+                        <div class="extraInfo">
+                            <i class="fa-solid fa-temperature-arrow-down"></i>
+                            <h2>Lowest temp : <span class="todayLowestTemp"></span>
+                            </h2>
+                        </div>
+                        <div class="extraInfo">
+                            <i class="fa-solid fa-droplet"></i>
+                            <h2>Humidity : <span class="todayHumidity"></span>
+                            </h2>
+                        </div>
+                        <div class="extraInfo">
+                            <i class="fa-solid fa-temperature-half"></i>
+                            <h2>UV: <span class="todayUv"> %</span>
+                            </h2>
                         </div>
                     </div>
                 </div>
-                <div class="dayStatus">
-                    <div class="highTemp">
-                        <i class="fa-solid fa-temperature-arrow-up"></i>
-                        <h4>Highest temp: <span class="highTempFeild"></span></h4>
-                    </div>
-                    <div class="lowestTemp">
-                        <i class="fa-solid fa-temperature-arrow-down"></i>
-                        <h4>Lowest temp: <span class="lowestTempFeild"></span>
-                        </h4>
 
-                    </div>
-                </div>
 
-                <div class="rain-forecast">
-                    <div>
-                        <i class="fa-solid fa-cloud-rain"></i>
-                        <h4>Probability of rain : <span class="rainProbabilty"></span></h4>
-                    </div>
-                    <div>
-                        <i class="fa-solid fa-circle-half-stroke"></i>
-                        <h4>
-                            Status: <span class="status"></span>
-                        </h4>
-                    </div>
-                </div>
-                <div class="humidty-forecast">
-                    <div>
-                        <i class="fa-solid fa-temperature-half"></i>
-                        <h4>
-                            UV: <span class="uv-forecast"></span>
-                        </h4>
-                    </div>
-
-                    <div>
-                        <i class="fa-solid fa-droplet"></i>
-                        <h4>
-                            Humidity : <span class="humidity-forecast"></span> %
-                        </h4>
-                    </div>
-                </div>
             </div>
+        </div> <!--  -->
+        <div>
+            <div class="forecastContainer">
+                <div class="foreCastHeader">
+                    <i class="fa-solid fa-calendar-days"></i>
+                    <h2>4 days forecast</h2>
+                </div>
+                <div class="forecastSection">
 
-        </div>
+                </div>
+                <hr>
+            </div>
+            <div class="particularDayForecast">
+                <div class="dayForecast">
+
+                    <div class="sunrise-set-forecast">
+                        <div class="sun">
+                            <div>
+                                <i class="fa-solid fa-sun sunImg"></i>
+                                <h4>Sunrise : <span class="forecastSunrise"></span> </h4>
+                            </div>
+                            <div>
+                                <i class="fa-solid fa-moon sunImg"></i>
+                                <h4>Sunset : <span class="forecastSunset"></span></h4>
+                            </div>
+                            <div>
+                                <i class="fa-solid fa-temperature-three-quarters"></i>
+                                <h4>Temp : <span class="foreCastAvgTemp"></span></h4>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="dayStatus">
+                        <div class="highTemp">
+                            <i class="fa-solid fa-temperature-arrow-up"></i>
+                            <h4>Highest temp: <span class="highTempFeild"></span></h4>
+                        </div>
+                        <div class="lowestTemp">
+                            <i class="fa-solid fa-temperature-arrow-down"></i>
+                            <h4>Lowest temp: <span class="lowestTempFeild"></span>
+                            </h4>
+
+                        </div>
+                    </div>
+
+                    <div class="rain-forecast">
+                        <div>
+                            <i class="fa-solid fa-cloud-rain"></i>
+                            <h4>Probability of rain : <span class="rainProbabilty"></span></h4>
+                        </div>
+                        <div>
+                            <i class="fa-solid fa-circle-half-stroke"></i>
+                            <h4>
+                                Status: <span class="status"></span>
+                            </h4>
+                        </div>
+                    </div>
+                    <div class="humidty-forecast">
+                        <div>
+                            <i class="fa-solid fa-temperature-half"></i>
+                            <h4>
+                                UV: <span class="uv-forecast"></span>
+                            </h4>
+                        </div>
+
+                        <div>
+                            <i class="fa-solid fa-droplet"></i>
+                            <h4>
+                                Humidity : <span class="humidity-forecast"></span> %
+                            </h4>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div> <!--  -->
     </div>
     <script src="./assets/js/weather.js"></script>
 </body>
