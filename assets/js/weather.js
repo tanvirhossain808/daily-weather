@@ -6,6 +6,7 @@ const apiResource = {
 }
 
 const elements = {
+    loader: document.querySelector(".loader"),
     inputField: document.querySelector(".inputField"),
     tempField: document.querySelector(".temp"),
     fellField: document.querySelector(".fell"),
@@ -199,3 +200,9 @@ const handleSelect = async (e) => {
 
 
 updateWeatherPage()
+
+
+window.addEventListener("load", () => {
+    elements.loader.style.display = "none"
+    console.log("hey");
+})

@@ -24,7 +24,6 @@ body {
     background-position: center;
     background-repeat: no-repeat;
     overflow: hidden;
-    /* overflow-y: scroll; */
     animation: fadeIn 2s;
 }
 
@@ -37,6 +36,18 @@ body {
     100% {
         opacity: 1;
     }
+}
+
+.loader {
+    background-image: url("../images/load-8510_256.gif");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 5%;
+    overflow: hidden;
+    z-index: 10;
+    background-color: black;
+    height: 110vh;
+    width: 100vw;
 }
 
 .container {
@@ -329,12 +340,16 @@ body {
         flex-direction: column;
         margin-top: 50px;
         padding: 5px;
-        overflow: hidden;
+        overflow-y: scroll;
 
     }
 
     .container .todayWeatherContainer .todayWeatherLeftSide {
         display: none;
+    }
+
+    .container .selectOption {
+        left: 0;
     }
 
     .container .dayForecast {
@@ -364,6 +379,7 @@ body {
 
     .particularDayForecast .dayForecast {
         width: 100vw;
+        font-size: 14px;
         display: flex;
         overflow-x: scroll;
         flex-direction: row;
