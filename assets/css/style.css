@@ -179,3 +179,28 @@ body {
     gap: 10px;
 
 }
+
+.forecastSection {
+    display: flex;
+    gap: 50px;
+    margin-bottom: 10px;
+    color: white;
+    align-items: center;
+}
+
+.forecastSection .foreCastHeader h2 {
+    background-color: red;
+    color: white;
+    display: none;
+}
+
+h2 {
+    color: white;
+}
+
+.forecastSection .day {
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    align-items: center;
+}

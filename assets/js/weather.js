@@ -19,6 +19,8 @@ const elements = {
     chanceOfRaining: document.querySelector(".rainChance"),
     sunrise: document.querySelector(".sunrise"),
     sunset: document.querySelector(".sunset"),
+    forecast: document.querySelector(".forecastSection")
+
 
 }
 
@@ -37,12 +39,13 @@ const loadCityList = async () => {
 loadCityList()
 
 const getCurrentWeather = async (city) => {
-    const weatherData = await fetch(`${apiResource.weatherApi}/forecast.json?key=${apiResource.weatherApiKey}&q=${city}`)
+    const weatherData = await fetch(`${apiResource.weatherApi}/forecast.json?key=${apiResource.weatherApiKey}&q=${city}&days=5`)
     const data = await weatherData.json()
     return data
 }
 const updateWeatherPage = async (city = "dhaka") => {
     try {
+        const dayNames = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 
         const { current, location, forecast } = await getCurrentWeather(city)
         const forecastData = forecast.forecastday[0]
@@ -60,6 +63,29 @@ const updateWeatherPage = async (city = "dhaka") => {
         elements.chanceOfRaining.innerText = `${forecastData.day.daily_chance_of_rain}  % `
         elements.sunrise.innerText = forecastData.astro.sunrise
         elements.sunset.innerText = forecastData.astro.sunset
+        forecast.forecastday.forEach((day, index) => {
+
+            if (index !== 0) {
+                const div = document.createElement("div")
+                div.className = "forecast"
+                const dayName = dayNames[new Date(day.date_epoch * 1000).getDay()]
+                div.innerHTML = `
+                <div class="day">
+                    <p class="date">${day.date}</p>
+                    <img src="https://${day.day.condition.icon}">
+                    <h4>${day.day.avgtemp_c} °C</h4>
+                    <p class="dayName">${dayName}</p>
+                </day>
+                
+                `
+                elements.forecast.appendChild(div)
+            }
+
+        })
+
+
+
+
     } catch (error) {
         console.log(error);
     }
